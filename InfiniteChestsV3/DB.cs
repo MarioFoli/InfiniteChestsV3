@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Mono.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -37,7 +37,7 @@ namespace InfiniteChestsV3
 
 				case "sqlite":
 					string sql = Path.Combine(TShock.SavePath, "InfChests3.sqlite");
-					db = new SqliteConnection(string.Format("uri=file://{0},Version=3", sql));
+					db = new SqliteConnection(string.Format("Data Source={0}", sql));
 					break;
 
 			}
