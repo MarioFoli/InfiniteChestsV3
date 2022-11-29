@@ -18,7 +18,7 @@ namespace InfiniteChestsV3
 	public class InfMain : TerrariaPlugin
 	{
 		#region Plugin Information
-		public override string Author => "Zaicon";
+		public override string Author => "Zaicon, updated by MarioFoli";
 		public override string Description => "The third version of InfiniteChests!";
 		public override string Name => "InfiniteChestsV3";
 		public override Version Version => Assembly.GetExecutingAssembly().GetName().Version;
@@ -524,12 +524,12 @@ namespace InfiniteChestsV3
 										else if (chest.userid != player.Account.ID && chest.userid != -1 && !player.HasPermission("ic.edit"))
 										{
 											player.SendErrorMessage("This chest is protected.");
-											player.SendTileSquare(tilex, tiley, 3);
+											player.SendTileSquareCentered(tilex, tiley, 3);
 										}
 										//check for empty chest
 										else if (!chest.isEmpty)
 										{
-											player.SendTileSquare(tilex, tiley, 3);
+											player.SendTileSquareCentered(tilex, tiley, 3);
 										}
 										else
 										{
@@ -689,7 +689,7 @@ namespace InfiniteChestsV3
 
 					Item exactmatch = null;
 					List<Item> partialMatches = new List<Item>();
-					for (int i = 0; i < Main.maxItemTypes; i++)
+					for (int i = 0; i < Terraria.ID.ItemID.Count; i++)
 					{
 						Item item = new Item();
 						item.SetDefaults(i);
